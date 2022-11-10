@@ -1,0 +1,26 @@
+<div>
+    <form  method="post" enctype="multipart/form-data">
+        <div class="control-group">
+            <input type="text" class="form-control"  placeholder="name" name="name" value="<%= product.name %>"
+                   required="required" data-validation-required-message="Please enter your name"/>
+        </div>
+        <div class="control-group">
+            <input type="text" class="form-control"  placeholder="price" name="price" value="<%= product.price %>"
+                   required="required" data-validation-required-message="Please enter your name"/>
+        </div>
+        <div class="control-group">
+            <input type="text" class="form-control"  placeholder="description" name="description" value="<%= product.description %>"
+                   required="required" data-validation-required-message="Please enter your name"/>
+        </div>
+        <div class="control-group">
+            <input type="text" class="form-control" placeholder="quantity" name="quantity" value="<%= product.quantity %>"
+                   required="required" data-validation-required-message="Please enter your name"/>
+        </div>
+        <div class="control-group">
+            <input type="file" class="form-control"  name="image"
+                   required="required" data-validation-required-message="Please enter your email" multiple/>
+            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Edit</button>
+        </div>
+        <img src="<%= product.image%>" alt="">
+    </form>
+</div>

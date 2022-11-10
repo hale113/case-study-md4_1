@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>EShopper - Bootstrap Shop Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+    <%- include ('../partial/style') %>
+</head>
+
+<body>
+
+<div class="row align-items-center py-3 px-xl-5" >
+    <div class="col-lg-3 d-none d-lg-block">
+        <a href="" class="text-decoration-none">
+            <h1 class="m-0 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+        </a>
+    </div>
+    <div class="col-lg-6 col-6 text-left">
+        <form action="" method="post" enctype="multipart/form-data" >
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for products" name="name">
+                <div class="input-group-append">
+                            <span class="input-group-text bg-transparent text-primary">
+                                <button type="submit">
+                                   <i class="fa fa-search" ></i>
+                                </button>
+
+                            </span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-lg-3 col-6 text-right">
+        <a href="" class="btn border">
+            <i class="fas fa-heart text-primary"></i>
+            <span class="badge">0</span>
+        </a>
+        <a href="" class="btn border">
+            <i class="fas fa-shopping-cart text-primary"></i>
+            <span class="badge">0</span>
+        </a>
+    </div>
+</div>
+<%- include ('../partial/navbar') %>
+
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <% for (let i=0; i< listProduct.length; i++) { %>
+        <div class="col-lg-4 col-md-6 pb-1">
+            <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
+                <p class="text-right"><%= listProduct[i].quantity%></p>
+                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                    <img class="img-fluid" src="<%= listProduct[i].image%>" alt="" style="height: 310px"; width="410px">
+                </a>
+                <h5 class="font-weight-semi-bold m-0">Name: <%= listProduct[i].name%></h5>
+                <p class="font-weight-semi-bold m-0"> Category: <%= listProduct[i].nameCategory%></p>
+                <a href="/edit/<%= listProduct[i].id%>"><button class="cat-item d-flex flex-column border mb-4">Edit</button></a>
+                <a href="/delete/<%= listProduct[i].id %>"><button class="cat-item d-flex flex-column border mb-4">Delete</button></a>
+
+            </div>
+        </div>
+        <% }%>
+    </div>
+</div>
+<!-- Categories End -->
+
+
+<%- include ('../partial/javascript') %>
+</body>
+
+</html>
