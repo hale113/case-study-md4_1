@@ -10,9 +10,12 @@ class ProductService {
         };
         this.findByName = async (req, res) => {
             let nameFind = req.body.name;
-            let products = await this.productRepository.query(`select *
-                                                           from products
-                                                           where products.name like '%${nameFind}%'`);
+            let products = await this.productRepository.query(`select *from products join category on idCategory = idC  where products.name like '%${nameFind}%'`);
+            return products;
+        };
+        this.findByCategory = async (req, res) => {
+            let idFind = req.params.id;
+            let products = await this.productRepository.query(`select * from products join category on idCategory = idC where idCategory = ${idFind}`);
             return products;
         };
         this.saveProduct = async (req, res) => {
@@ -28,7 +31,8 @@ class ProductService {
         };
         this.findById = async (req, res) => {
             let id = +req.params.id;
-            return await this.productRepository.findOneBy({ id: id });
+            let product = await this.productRepository.query(`select * from products join category on  idCategory = idC where products.id = ${id}`);
+            return product;
         };
         this.editProduct = async (req, res) => {
             let files = req.files;

@@ -15,13 +15,25 @@ class ProductController {
         };
         this.showFindName = async (req, res) => {
             let products = await this.productService.findByName(req, res);
+            let categories = await this.categoryService.findAll(req, res);
             res.render('product/list', {
-                listProduct: products
+                listProduct: products,
+                listCategory: categories
+            });
+        };
+        this.showFindCategory = async (req, res) => {
+            let products = await this.productService.findByCategory(req, res);
+            let categories = await this.categoryService.findAll(req, res);
+            res.render('product/list', {
+                listProduct: products,
+                listCategory: categories
             });
         };
         this.showFormCreate = async (req, res) => {
+            let products = await this.productService.findAll(req, res);
             let categories = await this.categoryService.findAll(req, res);
             res.render('product/create', {
+                listProduct: products,
                 listCategory: categories
             });
         };
@@ -30,8 +42,12 @@ class ProductController {
         };
         this.showFormEdit = async (req, res) => {
             if ((+req.params.id) != null) {
+                let categories = await this.categoryService.findAll(req, res);
                 let product = await this.productService.findById(req, res);
-                res.render('product/edit', { product: product });
+                res.render('product/edit', {
+                    product: product,
+                    listCategory: categories
+                });
             }
         };
         this.editP = async (req, res) => {

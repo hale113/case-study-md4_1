@@ -9,3 +9,5 @@ routerProduct.post('/edit/:id',productController.editP);
 routerProduct.get('/delete/:id',productController.showFromDelete);
 routerProduct.post('/delete/:id',productController.deleteP);
 routerProduct.post('/products', productController.showFindName);
+routerProduct.get('/category/:id', productController.showFindCategory);
+

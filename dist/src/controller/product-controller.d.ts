@@ -5,6 +5,7 @@ export declare class ProductController {
     constructor();
     getAll: (req: Request, res: Response) => Promise<void>;
     showFindName: (req: Request, res: Response) => Promise<void>;
+    showFindCategory: (req: Request, res: Response) => Promise<void>;
     showFormCreate: (req: Request, res: Response) => Promise<void>;
     createProduct: (req: Request, res: Response) => Promise<void>;
     showFormEdit: (req: Request, res: Response) => Promise<void>;

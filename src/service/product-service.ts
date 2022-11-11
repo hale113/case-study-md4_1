@@ -13,16 +13,19 @@ export class ProductService {
         })
         this.productRepository = AppDataSource.getRepository(Product);
     }
-
     findAll = async (req: Request, res: Response) => {
         return await this.productRepository.query(`select * from products join category on idCategory = category.idC`)
     }
     findByName = async (req: Request, res: Response) => {
-        let nameFind = req.body.name
-        let products = await this.productRepository.query(`select *
-                                                           from products
-                                                           where products.name like '%${nameFind}%'`);
+        let nameFind = req.body.name;
+        let products = await this.productRepository.query(`select *from products join category on idCategory = idC  where products.name like '%${nameFind}%'`);
         return products;
+    }
+    findByCategory = async (req: Request, res: Response) => {
+        let idFind = req.params.id;
+        let products =  await this.productRepository.query(`select * from products join category on idCategory = idC where idCategory = ${idFind}`);
+        return products
+
     }
     saveProduct = async (req: Request, res: Response) => {
         let files = req.files;
@@ -37,7 +40,9 @@ export class ProductService {
     }
     findById = async (req: Request, res: Response) => {
         let id = +req.params.id;
-        return await this.productRepository.findOneBy({id: id});
+        let product = await this.productRepository.query(`select * from products join category on  idCategory = idC where products.id = ${id}`);
+
+        return product
     }
     editProduct = async (req: Request, res: Response) => {
         let files = req.files;

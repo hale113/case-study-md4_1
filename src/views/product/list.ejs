@@ -21,7 +21,7 @@
     <div class="col-lg-6 col-6 text-left">
         <form action="" method="post" enctype="multipart/form-data" >
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search for products" name="name">
+                <input type="text" class="form-control" placeholder="Tên sản phẩm muốn tìm" name="name">
                 <div class="input-group-append">
                             <span class="input-group-text bg-transparent text-primary">
                                 <button type="submit">
@@ -54,13 +54,13 @@
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
                 <p class="text-right"><%= listProduct[i].quantity%></p>
                 <a href="" class="cat-img position-relative overflow-hidden mb-3">
-                    <img class="img-fluid" src="<%= listProduct[i].image%>" alt="" style="height: 310px"; width="410px">
+                    <img class="img-fluid" src="/<%= listProduct[i].image%>" alt="" style="height: 310px"; width="410px">
                 </a>
-                <h5 class="font-weight-semi-bold m-0">Name: <%= listProduct[i].name%></h5>
-                <p class="font-weight-semi-bold m-0"> Category: <%= listProduct[i].nameCategory%></p>
-                <a href="/edit/<%= listProduct[i].id%>"><button class="cat-item d-flex flex-column border mb-4">Edit</button></a>
-                <a href="/delete/<%= listProduct[i].id %>"><button class="cat-item d-flex flex-column border mb-4">Delete</button></a>
-
+                <h5 class="font-weight-semi-bold m-0">Tên: <%= listProduct[i].name%></h5>
+                <p class="font-weight-semi-bold m-0"> Loại: <%= listProduct[i].nameCategory%></p>
+                <p class="font-weight-semi-bold m-0"> Giá: <%= listProduct[i].price%></p>
+                <a href="/edit/<%= listProduct[i].id%>"><button class="cat-item d-flex flex-column border mb-4">Sửa</button></a>
+                <a href="/delete/<%= listProduct[i].id %>"><button class="cat-item d-flex flex-column border mb-4">Xóa</button></a>
             </div>
         </div>
         <% }%>
@@ -70,6 +70,45 @@
 
 
 <%- include ('../partial/javascript') %>
+<!-- Footer Start -->
+
+<div class="container-fluid bg-secondary text-dark mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <div class="col-lg-4 col-md-12 mb-5 pr-3 pr-xl-5">
+            <a href="" class="text-decoration-none">
+                <h1 class="mb-4 display-5 font-weight-semi-bold"><span class="text-primary font-weight-bold border border-white px-3 mr-1">E</span>Shopper</h1>
+            </a>
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>Ha Noi, VIET NAM</p>
+            <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>info@example.com</p>
+            <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+84 345 67890</p>
+        </div>
+        <div class="col-lg-8 col-md-12">
+            <div class="row">
+                <div class="col-md-4 mb-5">
+                    <h5 class="font-weight-bold text-dark mb-4">Đường dẫn</h5>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-dark mb-2" href="/products"><i class="fa fa-angle-right mr-2"></i>Trang chủ</a>
+                        <a class="text-dark mb-2" href="/create"><i class="fa fa-angle-right mr-2"></i>Thêm sản phẩm</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row border-top border-light mx-xl-5 py-4">
+        <div class="col-md-6 px-xl-0">
+            <p class="mb-md-0 text-center text-md-left text-dark">
+                &copy; <a class="text-dark font-weight-semi-bold" href="#">Your Site Name</a>. All Rights Reserved. Designed
+                by
+                <a class="text-dark font-weight-semi-bold" href="https://htmlcodex.com">HTML Codex</a><br>
+                Distributed By <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
+            </p>
+        </div>
+        <!-- Footer End -->
+        <div class="col-md-6 px-xl-0 text-center text-md-right">
+            <img class="img-fluid" src="img/payments.png" alt="">
+        </div>
+    </div>
+</div>
 </body>
 
 </html>

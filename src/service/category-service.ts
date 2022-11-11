@@ -8,7 +8,7 @@ export class CategoryService{
         this.categoryRepository =AppDataSource.getRepository(Category);
     }
     findAll = async (req:Request,res:Response)=>{
-        let categories = await this.categoryRepository.query(`select * from category`)
+        let categories = await this.categoryRepository.query(`select * from category `)
         return categories;
     }
 }
