@@ -41,7 +41,6 @@ export class ProductService {
     findById = async (req: Request, res: Response) => {
         let id = +req.params.id;
         let product = await this.productRepository.query(`select * from products join category on  idCategory = idC where products.id = ${id}`);
-
         return product
     }
     editProduct = async (req: Request, res: Response) => {
